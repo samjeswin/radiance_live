@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Remove .php extension for all PHP files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+
+# Disable directory listing for all directories
+Options -Indexes
+<Files *.php>
+    # Disable directory listing for PHP files
+    Options -Indexes
+</Files>
